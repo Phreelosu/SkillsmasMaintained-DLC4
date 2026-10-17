@@ -127,7 +127,7 @@ namespace Skillsmas.Skills.Merc
                 if (attackerBody && victimBody)
                 {
                     var num = executeThreshold / 100f;
-                    if (damageInfo.HasModdedDamageType(zandatsuDamageType) && victim.health <= victim.fullCombinedHealth * num && (victimBody.bodyFlags & CharacterBody.BodyFlags.ImmuneToExecutes) == 0)
+                    if (damageInfo.HasModdedDamageType(zandatsuDamageType) && victim.alive && victim.health <= victim.fullCombinedHealth * num && (victimBody.bodyFlags & CharacterBody.BodyFlags.ImmuneToExecutes) == 0)
                     {
                         DamageInfo executeDamage = new DamageInfo();
                         executeDamage.attacker = attackerObject;
@@ -140,6 +140,8 @@ namespace Skillsmas.Skills.Merc
                         executeDamage.force = Vector3.zero;
                         executeDamage.dotIndex = DotController.DotIndex.None;
                         executeDamage.position = victimBody.corePosition;
+                        // Tag the execute too, so kills from it still trigger the on-kill heal and effect
+                        executeDamage.AddModdedDamageType(zandatsuDamageType);
 
                         victim.TakeDamage(executeDamage);
                     }
@@ -208,7 +210,15 @@ namespace Skillsmas.Skills.Merc
 
                 stopwatch2 += Time.fixedDeltaTime;
                 attackStopwatch2 += Time.fixedDeltaTime;
-                if (!NetworkServer.active) return;
+
+                // Every instance of this state (owner, host, other clients) searches and plays visuals locally, like vanilla Evis.
+                // Only the server deals damage, and only the authority (the owning player) is allowed to end the state.
+                if (hitDone)
+                {
+                    if (isAuthority) outer.SetNextStateToMain();
+                    return;
+                }
+
                 var attackInterval = 1f / damageFrequency / attackSpeedStat;
                 if (attackStopwatch2 >= attackInterval)
                 {
@@ -229,17 +239,17 @@ namespace Skillsmas.Skills.Merc
                                 hitEffectPrefab,
                                 target.transform.position,
                                 new Vector3(randomCircle.x, 0f, randomCircle.y),
-                                true
+                                false
                             );
 
                             var targetTransform = hurtBoxGroup.transform;
-                            TemporaryOverlayInstance temporaryOverlayInstance = TemporaryOverlayManager.AddOverlay(transform.gameObject);
+                            TemporaryOverlayInstance temporaryOverlayInstance = TemporaryOverlayManager.AddOverlay(targetTransform.gameObject);
                             temporaryOverlayInstance.duration = attackInterval;
                             temporaryOverlayInstance.animateShaderAlpha = true;
                             temporaryOverlayInstance.alphaCurve = AnimationCurve.EaseInOut(0f, 1f, 1f, 0f);
                             temporaryOverlayInstance.destroyComponentOnEnd = true;
                             temporaryOverlayInstance.originalMaterial = LegacyResourcesAPI.Load<Material>("Materials/matMercEvisTarget");
-                            temporaryOverlayInstance.AddToCharacterModel(transform.GetComponent<CharacterModel>());
+                            temporaryOverlayInstance.AddToCharacterModel(targetTransform.GetComponent<CharacterModel>());
 
                             if (NetworkServer.active)
                             {
@@ -266,8 +276,6 @@ namespace Skillsmas.Skills.Merc
                         outer.SetNextStateToMain();
                     }
                 }
-
-                if (isAuthority && hitDone) outer.SetNextStateToMain();
             }
 
             public override void OnExit()

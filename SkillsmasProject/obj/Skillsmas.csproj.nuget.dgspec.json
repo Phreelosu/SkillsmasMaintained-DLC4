@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mario\\Documents\\RoR2Mods\\Skillsmas\\SkillsmasMaintained\\SkillsmasProject\\Skillsmas.csproj": {}
+    "D:\\Games\\LostItems\\skillsmas\\SkillsmasProject\\Skillsmas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mario\\Documents\\RoR2Mods\\Skillsmas\\SkillsmasMaintained\\SkillsmasProject\\Skillsmas.csproj": {
+    "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\MysticsRisky2Utils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\Documents\\RoR2Mods\\Skillsmas\\SkillsmasMaintained\\SkillsmasProject\\Skillsmas.csproj",
-        "projectName": "Skillsmas",
-        "projectPath": "C:\\Users\\mario\\Documents\\RoR2Mods\\Skillsmas\\SkillsmasMaintained\\SkillsmasProject\\Skillsmas.csproj",
-        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mario\\Documents\\RoR2Mods\\Skillsmas\\SkillsmasMaintained\\SkillsmasProject\\obj\\",
+        "projectUniqueName": "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\MysticsRisky2Utils.csproj",
+        "projectName": "MysticsRisky2Utils",
+        "projectPath": "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\MysticsRisky2Utils.csproj",
+        "packagesPath": "C:\\Users\\Dani\\.nuget\\packages\\",
+        "outputPath": "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\NuGet.Config",
+          "C:\\Users\\Dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +27,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.bepinex.dev/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -39,15 +45,215 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "BepInEx.Core": {
+              "target": "Package",
+              "version": "[5.*, )"
+            },
             "MMHOOK.RoR2": {
               "target": "Package",
-              "version": "[2024.9.18, )"
+              "version": "[*, )",
+              "noWarn": [
+                "NU1701"
+              ]
+            },
+            "R2API.Addressables": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.ArtifactCode": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.CommandHelper": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.ContentManagement": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Core": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.DamageType": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Deployable": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Difficulty": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Director": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Dot": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Elites": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Items": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Language": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Loadout": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.LobbyConfig": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Networking": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Orb": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Prefab": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.RecalculateStats": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.SceneAsset": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Skins": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Sound": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.TempVisualEffect": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "R2API.Unlockable": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "RiskOfRain2.GameLibs": {
+              "target": "Package",
+              "version": "[*-*, )"
+            },
+            "Rune580.Mods.RiskOfRain2.RiskOfOptions": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "UnityEngine.Modules": {
+              "target": "Package",
+              "version": "[2021.3.45, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Games\\LostItems\\skillsmas\\SkillsmasProject\\Skillsmas.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Games\\LostItems\\skillsmas\\SkillsmasProject\\Skillsmas.csproj",
+        "projectName": "Skillsmas",
+        "projectPath": "D:\\Games\\LostItems\\skillsmas\\SkillsmasProject\\Skillsmas.csproj",
+        "packagesPath": "C:\\Users\\Dani\\.nuget\\packages\\",
+        "outputPath": "D:\\Games\\LostItems\\skillsmas\\SkillsmasProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "D:\\Games\\LostItems\\skillsmas\\NuGet.Config",
+          "C:\\Users\\Dani\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.bepinex.dev/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\MysticsRisky2Utils.csproj": {
+                "projectPath": "D:\\Games\\LostItems\\mysticsutils\\MysticsRisky2Utils\\MysticsRisky2Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "BepInEx.Core": {
+              "target": "Package",
+              "version": "[5.*, )"
+            },
+            "MMHOOK.RoR2": {
+              "target": "Package",
+              "version": "[*, )",
+              "noWarn": [
+                "NU1701"
+              ]
             },
             "R2API.Core": {
               "target": "Package",
@@ -106,6 +312,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[*, )"
+            },
+            "UnityEngine.Modules": {
+              "target": "Package",
+              "version": "[2021.3.45, )"
             }
           },
           "imports": [
@@ -124,7 +334,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.318\\RuntimeIdentifierGraph.json"
         }
       }
     }

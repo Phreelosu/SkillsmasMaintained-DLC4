@@ -215,7 +215,7 @@ namespace Skillsmas.Skills.Toolbot
                 projectilePrefab = crateProjectilePrefab;
                 base.OnEnter();
 
-                detonationRadius = 3f;
+                var detonationRadius = 3f;
                 if (endpointVisualizerTransform) endpointVisualizerTransform.localScale = Vector3.one * detonationRadius;
                 UpdateVisualizers(currentTrajectoryInfo);
 

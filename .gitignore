@@ -73,6 +73,8 @@ SkillsmasProject/obj
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 #Other
+!/Skillsmas.sln
+!SkillsmasProject/Skillsmas.csproj
 SkillsmasUnityProject/Assets/Plugins/NGTools/*
 SkillsmasUnity/Assets/Resources/*
 SkillsmasUnity/Packages/*

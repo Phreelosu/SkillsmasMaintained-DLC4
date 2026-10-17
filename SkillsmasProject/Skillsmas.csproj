@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Skillsmas</AssemblyName>
+    <RootNamespace>Skillsmas</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+
+    <MSBuildWarningsAsMessages>
+      $(MSBuildWarningsAsMessages);MSB3277
+    </MSBuildWarningsAsMessages>
+
+    <!-- Local MysticsRisky2Utils checkout; used instead of libs\MysticsRisky2Utils.dll when present -->
+    <MysticsRisky2UtilsProject>$(MSBuildThisFileDirectory)..\..\mysticsutils\MysticsRisky2Utils\MysticsRisky2Utils.csproj</MysticsRisky2UtilsProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="RiskOfRain2.GameLibs" Version="*-*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.45" />
+    <PackageReference Include="MMHOOK.RoR2" Version="*">
+      <NoWarn>NU1701</NoWarn>
+    </PackageReference>
+    <PackageReference Include="RoR2.BepInEx.Analyzers" Version="*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="R2API.Core" Version="5.*" />
+    <PackageReference Include="R2API.DamageType" Version="*" />
+    <PackageReference Include="R2API.Deployable" Version="*" />
+    <PackageReference Include="R2API.Dot" Version="*" />
+    <PackageReference Include="R2API.Language" Version="*" />
+    <PackageReference Include="R2API.Networking" Version="*" />
+    <PackageReference Include="R2API.Orb" Version="*" />
+    <PackageReference Include="R2API.Prefab" Version="*" />
+    <PackageReference Include="R2API.RecalculateStats" Version="*" />
+    <PackageReference Include="R2API.Sound" Version="*" />
+    <PackageReference Include="R2API.TempVisualEffect" Version="*" />
+    <PackageReference Include="R2API.Unlockable" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(MysticsRisky2UtilsProject)')">
+    <ProjectReference Include="$(MysticsRisky2UtilsProject)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(MysticsRisky2UtilsProject)')">
+    <Reference Include="MysticsRisky2Utils">
+      <HintPath>libs\MysticsRisky2Utils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AncientScepter">
+      <HintPath>libs\AncientScepter.dll</HintPath>
+    </Reference>
+    <Reference Include="ArtificerExtended">
+      <HintPath>libs\ArtificerExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="Decalicious">
+      <HintPath>libs\Decalicious.dll</HintPath>
+    </Reference>
+    <Reference Include="RiskOfOptions">
+      <HintPath>libs\RiskOfOptions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>libs\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="manifest.json;README.md;CHANGELOG.md;icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
